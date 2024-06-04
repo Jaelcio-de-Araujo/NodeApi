@@ -18,12 +18,6 @@ app.get("/", (req, res) => {
     res.status(200).send("Curso de Node.JS");
 });
 
-app.get("/livros", async(req, res) => {
-    const listaLivros = await livro.find({});
-    res.status(200).json(listaLivros);
-});
-
-
 app.get("/livros/:id", (req, res) => {
     const index = buscaLivro(req.params.id);
     res.status(201).send("Livro cadastrado com sucesso.");
@@ -44,6 +38,5 @@ app.delete("/livros/:id", (req, res) => {
     const index = buscaLivro(req.params.id);
     livros.splice(index, 1).send("Livro exluido com sucesso.");
 });
-
 
 export default app;
